@@ -1,0 +1,34 @@
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(name='viewport', content='width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0')
+    meta(name='keywords', content='Aul Studio')
+    meta(name='og:url', content="aul-studio.de")
+    meta(name='og:type', content="photography studio")
+    meta(name='og:title', content=typeof(title) !== 'Aul Studio' ? title : "Aul Studio")
+    meta(name='og:image', content="")
+    meta(name='og:description', content="")
+
+    link(rel='shortcut icon', href='./Aul_Logo_web.jpg', type='image/x-icon') 
+    link(rel='stylesheet', href='./styles/main.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    title Aul Studio
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js')
+  
+  body
+    .row
+      each project, index in folders 
+        - var projectImage = cleanUrls.filter(url => url.indexOf(project.slice(0, -1)) > -1 );
+          if index % 3 == 2 
+            .preview-clusters.column
+              h1 #{project}
+              .image-cluster(id=project.slice(0, -1))
+                each pUrl in projectImage
+                  img.preview-image(src=pUrl)
+          else 
+            .preview-clusters.one-half.column
+              h1 #{project}
+              .image-cluster(id=project.slice(0, -1))
+                each pUrl in projectImage
+                  img.preview-image(src=pUrl)
+    script(type='text/javascript', src='/scripts/staircase.js')

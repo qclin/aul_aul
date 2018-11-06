@@ -1,0 +1,11 @@
+{
+  "MAIL": {
+    "SERVICE": "gmail",
+    "INFO": "travel-arts@gmail.com",
+    "ADDRESS" : "qiaoclin@gmail.com"
+  },
+  "AWS_MAIL":{
+    "SMTP_USER":"AKIAI4R6TTY63LN3JR2Q",
+    "SMTP_PASS": "AsCd7Nu/Wx9b8I64knZF2m5VajLYEmwMj8M0zqpfJ/OG"
+  }
+}

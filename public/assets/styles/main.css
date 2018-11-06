@@ -1,0 +1,68 @@
+@import url('skeleton/skeleton.css');
+@import url('./typography.css');
+
+
+
+
+.preview-clusters{
+  height: 100vh;
+  margin: 2em 0;
+}
+.image-cluster{
+  position: relative;
+}
+
+img.preview-image{
+  height: -webkit-fill-available;
+  position: absolute;
+}
+
+
+img.preview-image:first-of-type{
+
+}
+
+img.preview-image:nth-of-type(2){
+  top: 10px;
+  left: 10px;
+}
+
+img.preview-image:nth-of-type(3){
+  top: 20px;
+  left: 20px;
+}
+
+img.preview-image:nth-of-type(4){
+  top: 30px;
+  left: 30px;
+}
+img.preview-image:nth-of-type(5){
+  top: 40px;
+  left: 40px;
+}
+img.preview-image:nth-of-type(6){
+  top: 50px;
+  left: 50px;
+}
+img.preview-image:nth-of-type(7){
+  top: 60px;
+  left: 60px;
+}
+
+img.preview-image:nth-of-type(8){
+  top: 70px;
+  left: 70px;
+}
+
+img.preview-image:nth-of-type(9){
+  top: 80px;
+  left: 80px;
+}
+img.preview-image:nth-of-type(10){
+  top: 90px;
+  left: 90px;
+}
+img.preview-image:nth-of-type(11){
+  top: 100px;
+  left: 100px;
+}

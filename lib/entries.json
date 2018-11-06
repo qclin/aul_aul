@@ -1,0 +1,35 @@
+{
+    "00_Bruecke_Museum":{
+      "title":"Brücke Museum, Berlin"
+    },
+    "01_Continental":{
+      "title":"Continental"
+    },
+    "02_Grass":{
+      "title":"Grass GmbH"
+    },
+    "03_Montblanc":{
+      "title":"Hamm GmbH"
+    },
+    "04_Uhren":{
+      "title":"Kunstgewerbemuseum, Berlin"
+    },
+    "05_Saturn":{
+      "title":"Meerglanz"
+    },
+    "06_Saturn_Titel_Layouts":{
+      "title":"Montblanc"
+    },
+    "07_Meerglanz":{
+      "title":"Petrischale"
+    },
+    "08_Hamm":{
+      "title":"Saturn"
+    },
+    "09_Petrischale":{
+      "title":"Saturn Titel Layouts"
+    },
+    "10_KGM_Berlin":{
+      "title":"Uhren, Editorial"
+    }
+}
