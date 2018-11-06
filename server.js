@@ -18,7 +18,9 @@ app.set('views', './public/views');
 app.set('view engine', 'pug');
 
 app.get('/', function(req, res){
-	var imgFiles = getFiles('./public/assets/images');
+
+  // var imgFiles = getFiles('./public/assets/images');
+
   s3Bucket.listDirectories().then((folders) => {
     s3Bucket.getDirectoryFiles('previews').then((urls) => {
       var previewIndex = folders.indexOf('previews');
