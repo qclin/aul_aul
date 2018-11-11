@@ -12,6 +12,8 @@ var AULProjNames;
 
 app.use(cors());
 app.use(bodyParser.json({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(express.static(__dirname + "/public/assets"));
 
 app.set('views', './public/views');
@@ -29,7 +31,7 @@ app.get('/', function(req, res){
 
   s3Bucket.getDirectoryFiles('previews').then((urls) => {
     var cleanUrls = urls.filter(Boolean);
-    res.render('index', { AULProjNames, cleanUrls });
+    res.render('index', { AULProjNames, cleanUrls, dbEntries });
   });
 });
 
@@ -41,6 +43,11 @@ app.get('/works/:project', function(req, res){
 		var cleanUrls = urls.filter(Boolean);
 		res.render('projects/index', { description: projectText, stocks: cleanUrls});
 	});
+});
+
+app.post('/subscribe', function(req, res){
+  console.log('-----subscribe-- ', req.body);
+  res.send('POST REQUEST TO /Subscribe')
 });
 
 app.listen(3232, () => console.log('listening on 3232 '))

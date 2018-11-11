@@ -1,6 +1,10 @@
 @import url('skeleton/skeleton.css');
 @import url('./typography.css');
 
+body{
+  overflow-x: hidden;
+  padding: 2em;
+}
 .logo-wrapper{
   width: 100px;
   margin: auto;
@@ -26,15 +30,20 @@ a:hover{
 }
 .preview-clusters{
   height: 100vh;
-  margin: 2em 0;
+  /* margin: 2em 0; */
+}
+.preview-clusters.one-half:nth-of-type(even){
+  margin-top: 10vh;
 }
 .image-cluster{
   position: relative;
+  /* height: 100vh; */
 }
 
 img.preview-image{
-  height: -webkit-fill-available;
+  height: 70vh;
   position: absolute;
+  max-width: 80%;
 }
 
 #info-page .one-half{
@@ -48,5 +57,49 @@ img.preview-image{
 
 .project-page img{
   margin: 2em;
-  max-height: 100vh; 
+  max-height: 100vh;
+}
+
+a.view-link{
+  display: inline-block;
+  margin-right: 1em;
+}
+
+.right-align{
+  display: inline-block;
+  float: right;
+  margin-right: 3em;
+}
+
+.citation{
+  position: relative;
+  top: 75vh;
+  max-width: 600px
+}
+
+
+.addresses{
+  text-align: center;
+}
+
+#confirmation{
+  display: none;
+  color: #00FF00;
+}
+
+input{
+  display: block;
+  padding-left: 12px;
+}
+
+input[type=submit]{
+  border: none;
+  border-bottom: 1px solid;
+  margin: 12px;
+  padding: 0;
+  cursor: pointer;
+}
+
+form#subscribeForm{
+  margin-bottom: 5em;
 }

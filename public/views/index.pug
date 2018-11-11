@@ -20,20 +20,29 @@ html
     section#content-wrapper
       div.tabcontent#work-page.row
         each project, index in AULProjNames 
-          - var projectImage = cleanUrls.filter(url => url.indexOf(project.slice(0, -1)) > -1 );
-            a(href=`/works/${project}`)
-              if index % 3 == 2 
-                .preview-clusters.column
-                  h1 #{project}
-                  .image-cluster(id=project.slice(0, -1))
-                    each pUrl in projectImage
-                      img.preview-image(src=pUrl)
-              else 
-                .preview-clusters.one-half.column
-                  h1 #{project}
-                  .image-cluster(id=project.slice(0, -1))
-                    each pUrl in projectImage
-                      img.preview-image(src=pUrl)
+          - var pKey = project.slice(0, -1)
+          - var pImage = cleanUrls.filter(url => url.indexOf(pKey) > -1 );
+          - var pRow = dbEntries[pKey]
+            if index % 3 == 2 
+              .preview-clusters.column
+                .image-cluster(id=project.slice(0, -1))
+                  each pUrl in pImage
+                    img.preview-image(src=pUrl)
+                  .citation 
+                    span.title #{pRow.title} 
+                    .right-align
+                      a.view-link(href=`/works/${project}`) view images
+                      span.download-pdf download pdf
+            else 
+              .preview-clusters.one-half.column
+                .image-cluster(id=project.slice(0, -1))
+                  each pUrl in pImage
+                    img.preview-image(src=pUrl)
+                  .citation 
+                    span.title #{pRow.title} 
+                    .right-align
+                      a.view-link(href=`/works/${project}`) view images
+                      span.download-pdf download pdf
         script(type='text/javascript', src='/scripts/staircase.js')
       div.tabcontent#info-page.row
         .one-half.column
@@ -45,9 +54,6 @@ html
           p Unser Studio liegt im Berliner Bezirk Wedding, ist nicht nur schnell von der Autobahn aus zu erreichen, sondern sogar ebenerdig — so lassen sich Side-by-Side K&uuml;hlschr&auml;nke und riesige Diamantringe auch ohne gr&ouml;ßeren Aufwand vor die Linse transportieren. Unser Licht ist je nach Anforderung mal heiß, mal kalt und die Kamera mittelformatig und digital. Aber gerne: wenn gew&uuml;nscht, packen wir alles zusammen und kommen zu Ihnen! 
 
 
-      div.tabcontent#contact-page.row
-        include partials/contact.pug
-
-    script.
+      include partials/contact.pug
         
         
