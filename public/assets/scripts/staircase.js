@@ -6,9 +6,9 @@ $(document).ready(function(){
     for(var j=0; j< previewImages.length; j++){
       $(previewImages[j]).css({
         'top': 20*j,
-        'left': 20*j, 
+        'left': 20*j,
         'z-index': 12 -j
       });
     }
   }
-});
+}); 

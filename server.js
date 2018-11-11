@@ -8,7 +8,7 @@ var app = express();
 
 var s3Bucket = require('./lib/s3bucket');
 var dbEntries = require('./lib/entries.json');
-
+var AULProjNames;
 
 app.use(cors());
 app.use(bodyParser.json({ extended: false }));
@@ -18,26 +18,28 @@ app.set('views', './public/views');
 app.set('view engine', 'pug');
 
 app.get('/', function(req, res){
-
   // var imgFiles = getFiles('./public/assets/images');
-
-  s3Bucket.listDirectories().then((folders) => {
-    s3Bucket.getDirectoryFiles('previews').then((urls) => {
-      var previewIndex = folders.indexOf('previews');
-      folders.splice(previewIndex, 1)
-      var cleanUrls = urls.filter(Boolean);
-      res.render('index', { folders, cleanUrls });
+  if(!AULProjNames){
+    s3Bucket.listDirectories().then((projectList) => {
+      var previewIndex = projectList.indexOf('previews');
+      projectList.splice(previewIndex, 1);
+      AULProjNames = projectList;
     });
+  }
+
+  s3Bucket.getDirectoryFiles('previews').then((urls) => {
+    var cleanUrls = urls.filter(Boolean);
+    res.render('index', { AULProjNames, cleanUrls });
   });
 });
 
 app.get('/works/:project', function(req, res){
 	var projectKey = req.params.project;
 	var projectText = dbEntries[projectKey];
-
+  console.log('-------- ', projectText);
 	s3Bucket.getDirectoryFiles(`${projectKey}/`).then((urls) =>{
 		var cleanUrls = urls.filter(Boolean);
-		res.render('projects/index', { article: projectText, visuals: cleanUrls});
+		res.render('projects/index', { description: projectText, stocks: cleanUrls});
 	});
 });
 

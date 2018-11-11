@@ -16,19 +16,38 @@ html
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js')
   
   body
-    .row
-      each project, index in folders 
-        - var projectImage = cleanUrls.filter(url => url.indexOf(project.slice(0, -1)) > -1 );
-          if index % 3 == 2 
-            .preview-clusters.column
-              h1 #{project}
-              .image-cluster(id=project.slice(0, -1))
-                each pUrl in projectImage
-                  img.preview-image(src=pUrl)
-          else 
-            .preview-clusters.one-half.column
-              h1 #{project}
-              .image-cluster(id=project.slice(0, -1))
-                each pUrl in projectImage
-                  img.preview-image(src=pUrl)
-    script(type='text/javascript', src='/scripts/staircase.js')
+    include partials/header.pug
+    section#content-wrapper
+      div.tabcontent#work-page.row
+        each project, index in AULProjNames 
+          - var projectImage = cleanUrls.filter(url => url.indexOf(project.slice(0, -1)) > -1 );
+            a(href=`/works/${project}`)
+              if index % 3 == 2 
+                .preview-clusters.column
+                  h1 #{project}
+                  .image-cluster(id=project.slice(0, -1))
+                    each pUrl in projectImage
+                      img.preview-image(src=pUrl)
+              else 
+                .preview-clusters.one-half.column
+                  h1 #{project}
+                  .image-cluster(id=project.slice(0, -1))
+                    each pUrl in projectImage
+                      img.preview-image(src=pUrl)
+        script(type='text/javascript', src='/scripts/staircase.js')
+      div.tabcontent#info-page.row
+        .one-half.column
+          p Nachdem wir seit mehreren Jahren f&uuml;r viele Auftr&auml;ge und Projekte zusammen gearbeitet haben, haben wir uns 2018 entschieden, gemeinsam ein Studio f&uuml;r Produkt- und Still Fotografie zu gr&uuml;nden: Aul.
+          p Aul? Wir meinen nat&uuml;rlich Owl, Englisch f&uuml;r die Eule - weil wir Fans sind von der Weisheit, f&uuml;r die sie symbolisch steht, und weil sie so putzig aussieht auf der Schulter von Athene, der G&ouml;ttin des Handwerks und der Kunst. 
+          p Und Aul, das sind wir: Stefan „mein Studio ist schwarz, damit ich jeden Lichtstrahl kontrollieren kann“ B&uuml;chner, der im Lauf seiner dreißigj&auml;hrigen Karriere als Fotograf f&uuml;r Werbung und Magazin so ziemlich alles vom Auto bis zum Zirkonia vor die Linse bekommen hat. Und Nane Diehl, die noch keinen zweiten Vornamen hat, jedoch offen f&uuml;r Vorschl&auml;ge ist, und die nach ihrem Uniabschluss in Kulturwissenschaft und Amerikanistik doch lieber Fotografin werden wollte, einige Jahre bei Beauty-, Celebrity- und Stillfotografen assistiert hat und dann noch eine Menge Erfahrung im E-commerce Bereich gesammelt hat.
+        .one-half.column
+          p Wir k&ouml;nnen beides: Sowohl Fotos machen, die selbst auf kleinen Formaten die Gestalt und die Materialeigenschaften von Produkten zur Geltung bringen, etwa auf dem ersten Blick online. Als auch Licht setzen und Settings kreieren, die Geschichten erz&auml;hlen und den Betrachter in das Bild ziehen. Wenn wir die M&ouml;glichkeit haben, all diese Aspekte &uuml;ber die reine (und selbstverst&auml;ndlich immer sch&ouml;ne) Produktfotografie hinaus verbinden zu k&ouml;nnen: High Five!
+          p Unser Studio liegt im Berliner Bezirk Wedding, ist nicht nur schnell von der Autobahn aus zu erreichen, sondern sogar ebenerdig — so lassen sich Side-by-Side K&uuml;hlschr&auml;nke und riesige Diamantringe auch ohne gr&ouml;ßeren Aufwand vor die Linse transportieren. Unser Licht ist je nach Anforderung mal heiß, mal kalt und die Kamera mittelformatig und digital. Aber gerne: wenn gew&uuml;nscht, packen wir alles zusammen und kommen zu Ihnen! 
+
+
+      div.tabcontent#contact-page.row
+        include partials/contact.pug
+
+    script.
+        
+        

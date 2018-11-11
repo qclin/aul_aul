@@ -1,0 +1,23 @@
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(name='viewport', content='width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0')
+    meta(name='keywords', content='Aul Studio')
+    meta(name='og:url', content="aul-studio.de")
+    meta(name='og:type', content="photography studio")
+    meta(name='og:title', content=typeof(title) !== 'Aul Studio' ? title : "Aul Studio")
+    meta(name='og:image', content="")
+    meta(name='og:description', content="")
+
+    link(rel='shortcut icon', href='../Aul_Logo_web.jpg', type='image/x-icon') 
+    link(rel='stylesheet', href='/styles/main.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    title Aul Studio
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js')
+  
+  body
+    include ../partials/project_header.pug
+    section.project-page
+      h1 #{description[title]}
+      each stockUrl in stocks 
+        img(src=stockUrl)
